@@ -1,0 +1,33 @@
+{
+  "name": "prisma",
+  "displayName": "Prisma ORM",
+  "description": "Prisma ORM template with type-safe database access, migrations, and schema-first design",
+  "category": "database",
+  "language": "typescript",
+  "framework": "prisma",
+  "stack": ["prisma", "typescript", "node"],
+  "features": ["type-safe-orm", "migrations", "schema-first", "prisma-studio", "seeding"],
+  "commands": {
+    "dev": "npx prisma studio",
+    "build": "npx prisma generate",
+    "test": "npm test"
+  },
+  "packageManager": "npm",
+  "ci": {
+    "workflowTemplate": "prisma",
+    "runner": "ubuntu-latest",
+    "runtime": {
+      "name": "node",
+      "version": "20",
+      "setup": "actions/setup-node@v4",
+      "cache": "npm"
+    },
+    "services": {},
+    "steps": {
+      "install": "npm ci",
+      "build": "npx prisma generate",
+      "test": "npm test",
+      "lint": null
+    }
+  }
+}
